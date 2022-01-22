@@ -1,6 +1,5 @@
-Rohan Takey PGA20
 
-Q1 Assessment Hadoop
+
  
 # Creating an external table in HIVE 
 
