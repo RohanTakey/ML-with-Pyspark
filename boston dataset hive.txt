@@ -1,0 +1,34 @@
+Rohan Takey PGA20
+
+Q1 Assessment Hadoop
+ 
+# Creating an external table in HIVE 
+
+CREATE TABLE IF NOT EXISTS boston ( CRIM Double, ZN Double,INDUS Double,CHAS int,NOX Double,RM Double,AGE Double,DIS Double,RAD int,TAX int,PT Double,B Double,LSTAT Double,MV Double)
+COMMENT 'boston dataset'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+LINES TERMINATED BY '\n'
+STORED AS TEXTFILE
+TBLPROPERTIES("skip.header.line.count"="1");
+
+LOAD DATA LOCAL INPATH '/home/hduser/demo_1/boston.csv'
+OVERWRITE INTO TABLE boston
+
+
+
+Q2  Pyspark -
+
+#Start Hive2 & Metastore servers...
+Terminal:1
+
+hive --service hiveserver2&
+hive --service metastore&
+
+Terminal:2
+beeline -u "jdbc:hive2://localhost:10000/default;AuthMech=0;transportMode=binary"
+
+
+
+# Start jupyter 
+# connect spark with hive
